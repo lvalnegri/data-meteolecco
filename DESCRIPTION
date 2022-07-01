@@ -1,0 +1,19 @@
+Package: meteolecco
+Type: Package
+Date: 2022-07-01
+Title:   Historical data about temperature and wind metrics in Lecco, Italy
+Version: 0.1.0
+Authors@R: person("Luca", "Valnegri", email = "l.valnegri@datamaps.co.uk", role = c("aut", "cre"))
+Description: 
+  Historical data about temperature and wind metrics in my small home town Lecco, Italy.
+  Measures collected by http://www.meteolecco.it.
+License: file LICENSE
+Encoding: UTF-8
+Depends: R (>= 4.1)
+Imports:
+  data.table,
+  ggplot2
+Suggests:
+Remotes:
+LazyData: true
+RoxygenNote: 7.2.0

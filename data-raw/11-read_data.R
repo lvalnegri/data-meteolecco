@@ -1,8 +1,6 @@
 # METEOLECCO Data Download
 
-library(data.table)
-library(fasttime)
-library(rvest)
+Rfuns::load_pkgs('data.table', 'fasttime', 'fst', 'rvest')
 
 scarica_tabella <- function(m, a){
     data.table(
@@ -17,7 +15,7 @@ scarica_tabella <- function(m, a){
     )
 }
 
-tutto <- TRUE
+tutto <- FALSE
 if(tutto){
     y <- data.table()
     for(i in 3:12) y <- rbindlist(list( y, scarica_tabella(i, 4) ))
@@ -58,10 +56,18 @@ y[, (cols) := lapply(.SD, as.numeric), .SDcols = cols]
 y <- y[!is.na(tmax)]
 
 if(!tutto){
-    y0 <- fst::read_fst('E:/downloads/meteolecco', as.data.table = TRUE)
+    y0 <- read_fst('./data-raw/dataset', as.data.table = TRUE)
     y0 <- y0[!(anno == a & mese == m)]
     y <- rbindlist(list(y0, y))
 }
 
+write_fst(y, './data-raw/dataset')
 fwrite(y, './data-raw/dataset.csv')
 
+fn <- 'dataset'
+assign(fn, y)
+save( list = fn, file = file.path('data', paste0(fn, '.rda')), version = 3, compress = 'gzip' )
+dd_dbm_do('meteolecco', 'w', fn, y)
+
+rm(list = ls())
+gc()

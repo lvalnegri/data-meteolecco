@@ -1,7 +1,28 @@
-#' List of ...
+#' vars.lst
+#' 
+#' List of metrics in `dataset`
 #'
 #' @export
-listname.lst <- c('')
+vars.lst <- c(
+    'Maximum Temperature' = 'tmax',
+    'Minimum Temperature' = 'tmin',
+    'Average Temperature' = 'tmed',
+    'Rain precipitation' = 'prec',
+    'Maximum Wind Speed' = 'vmax',
+    'Average Wind Speed' = 'vmed'
+)
+
+#' hvars.lst
+#' 
+#' List of time recording for metrics in `dataset`
+#'
+#' @export
+hvars.lst <- c(
+    'Time of Max Temp' = 'htmax',
+    'Time of Min Temp' = 'htmin',
+    'Time of Max Wind Speed' = 'hvmax'
+)
+
 
 
 # .onAttach <- function(libname, pkgname) {

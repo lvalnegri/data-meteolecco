@@ -8,5 +8,5 @@
 Historical data about temperature and wind metrics in my small home town Lecco, Italy,
 }
 \details{
-Measures collected by \url{https://www.meteolecco.it}
+Measures collected by \url{http://www.meteolecco.it}
 }
